@@ -1,0 +1,40 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:CadastroAlimentos9.ViewModels"
+             x:Class="CadastroAlimentos9.Views.AlimentosPage"
+             Title="Cadastro de Alimentos">
+
+    <ContentPage.BindingContext>
+        <viewModels:AlimentosViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Nome do Alimento:" />
+        <Entry Text="{Binding Nome}" Placeholder="Ex: Maçã" />
+        <Label Text="Calorias (kcal):" />
+        <Entry Text="{Binding Calorias}" Keyboard="Numeric" Placeholder="Ex: 52" />
+        <Button Text="Salvar Alimento" Command="{Binding SalvarCommand}" Margin="0,20,0,0" />
+        <Line Stroke="LightGray" Margin="0,20" />
+        <Label Text="Alimentos Cadastrados" FontSize="Large" FontAttributes="Bold" />
+
+        <CollectionView ItemsSource="{Binding Alimentos}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10" ColumnDefinitions="*, Auto">
+                        <Label Grid.Column="0" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Nome}" FontAttributes="Bold" />
+                                    <Span Text="{Binding Calorias, StringFormat=' - {0} kcal'}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Button Grid.Column="1" Text="Excluir" BackgroundColor="Red"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:AlimentosViewModel}}, Path=ExcluirCommand}"
+                                CommandParameter="{Binding .}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
