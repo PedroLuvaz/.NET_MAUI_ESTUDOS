@@ -62,6 +62,7 @@ Dentro da pasta do projeto `CadastroAlimentos9`, crie a seguinte estrutura de pa
     ```
 2.  **Instale os pacotes do Entity Framework Core**:
     ```powershell
+    dotnet tool install --global dotnet-ef
     dotnet add package Microsoft.EntityFrameworkCore.SqlServer
     dotnet add package Microsoft.EntityFrameworkCore.Tools
     ```
@@ -213,8 +214,8 @@ public class AlimentosViewModel : INotifyPropertyChanged
 Crie o arquivo da página `Views/AlimentosPage.xaml` e adicione o seguinte código de interface:
 
 ```xml
-<ContentPage xmlns="[http://schemas.microsoft.com/dotnet/2021/maui](http://schemas.microsoft.com/dotnet/2021/maui)"
-             xmlns:x="[http://schemas.microsoft.com/winfx/2009/xaml](http://schemas.microsoft.com/winfx/2009/xaml)"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:CadastroAlimentos9.ViewModels"
              x:Class="CadastroAlimentos9.Views.AlimentosPage"
              Title="Cadastro de Alimentos">
@@ -277,22 +278,64 @@ public partial class AlimentosPage : ContentPage
   * **Ajuste o `AppShell.xaml`** para que ele carregue a `AlimentosPage` como página inicial:
     ```xml
     <Shell
-        x:Class="CadastroAlimentos9.AppShell"
-        xmlns="[http://schemas.microsoft.com/dotnet/2021/maui](http://schemas.microsoft.com/dotnet/2021/maui)"
-        xmlns:x="[http://schemas.microsoft.com/winfx/2009/xaml](http://schemas.microsoft.com/winfx/2009/xaml)"
-        xmlns:views="clr-namespace:CadastroAlimentos9.Views"
-        Shell.FlyoutBehavior="Disabled"
-        Title="CadastroAlimentos9">
+    x:Class="CadastroAlimentos9.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:CadastroAlimentos9.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="CadastroAlimentos9">
 
-        <ShellContent
-            Title="Home"
-            ContentTemplate="{DataTemplate views:AlimentosPage}"
-            Route="MainPage" />
-
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:AlimentosPage}"
+        Route="MainPage" />
     </Shell>
-    ```
 
------
+* **Ajuste o `App.xaml`** para que ele carregue a `AlimentosPage` como página inicial:
+```xml
+	<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CadastroAlimentos9"
+             x:Class="CadastroAlimentos9.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
+
+```
+* **Ajuste o `App.xaml.cs e AppShell.xaml.cs`**:
+App.xaml.cs:
+namespace CadastroAlimentos9;
+```xml
+public partial class App : Application
+{
+	public App()
+	{
+		InitializeComponent();
+	}
+
+	protected override Window CreateWindow(IActivationState? activationState)
+	{
+		return new Window(new AppShell());
+	}
+}
+
+AppShell.xaml.cs:
+namespace CadastroAlimentos9;
+
+public partial class AppShell : Shell
+{
+	public AppShell()
+	{
+		InitializeComponent();
+	}
+}
+```
 
 ## ▶️ Parte 8: Executando o Projeto
 
