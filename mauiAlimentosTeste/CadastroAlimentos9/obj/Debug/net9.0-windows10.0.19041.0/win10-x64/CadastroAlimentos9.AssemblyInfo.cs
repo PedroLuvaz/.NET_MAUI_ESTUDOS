@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CadastroAlimentos9")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+6f995f35172f9e10e67d567eecf05fddd653f43a")]
 [assembly: System.Reflection.AssemblyProductAttribute("CadastroAlimentos9")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CadastroAlimentos9")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

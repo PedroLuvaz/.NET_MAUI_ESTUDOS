@@ -65768,11 +65768,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pedro Andrade\\Desktop\\mauiAlimentosTeste\\mauiAlimentosTeste\\CadastroAlimentos9\\CadastroAlimentos9.csproj",
+      "projectUniqueName": "C:\\Users\\Pedro Andrade\\Desktop\\DEV_LUFH\\.NET_MAUI_ESTUDOS\\mauiAlimentosTeste\\CadastroAlimentos9\\CadastroAlimentos9.csproj",
       "projectName": "CadastroAlimentos9",
-      "projectPath": "C:\\Users\\Pedro Andrade\\Desktop\\mauiAlimentosTeste\\mauiAlimentosTeste\\CadastroAlimentos9\\CadastroAlimentos9.csproj",
+      "projectPath": "C:\\Users\\Pedro Andrade\\Desktop\\DEV_LUFH\\.NET_MAUI_ESTUDOS\\mauiAlimentosTeste\\CadastroAlimentos9\\CadastroAlimentos9.csproj",
       "packagesPath": "C:\\Users\\Pedro Andrade\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pedro Andrade\\Desktop\\mauiAlimentosTeste\\mauiAlimentosTeste\\CadastroAlimentos9\\obj\\",
+      "outputPath": "C:\\Users\\Pedro Andrade\\Desktop\\DEV_LUFH\\.NET_MAUI_ESTUDOS\\mauiAlimentosTeste\\CadastroAlimentos9\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

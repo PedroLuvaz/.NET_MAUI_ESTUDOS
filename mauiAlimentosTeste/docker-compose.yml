@@ -1,0 +1,33 @@
+# Versão do Docker Compose
+version: '3.8'
+
+# Aqui definimos nossos serviços (contêineres)
+services:
+  
+  # 1. O Serviço do SQL Server
+  sql-server-db:
+    # A imagem que queremos usar
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    
+    # O nome do contêiner que será criado
+    container_name: sql_server_maui
+    
+    # As variáveis de ambiente (como a senha do 'sa')
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=TesteForte123! # Use a senha forte que preferir
+      
+    # O mapeamento de portas: "porta-do-host:porta-do-container"
+    # É ESTA LINHA que torna seu servidor acessível pelo IP do WSL
+    ports:
+      - "1433:1433"
+      
+    # Volumes: Isso garante que seus dados não sejam perdidos 
+    # se você recriar o contêiner.
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+
+# Aqui definimos o "volume" (local de armazenamento)
+volumes:
+  sqlserver-data:
+    driver: local

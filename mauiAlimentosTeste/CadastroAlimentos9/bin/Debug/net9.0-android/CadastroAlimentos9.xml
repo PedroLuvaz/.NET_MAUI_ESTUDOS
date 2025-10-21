@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CadastroAlimentos9</name>
+    </assembly>
+    <members>
+        <member name="T:CadastroAlimentos9.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:CadastroAlimentos9.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CadastroAlimentos9.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CadastroAlimentos9.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:CadastroAlimentos9.Migrations.InitialCreate2234">
+            <inheritdoc />
+        </member>
+        <member name="M:CadastroAlimentos9.Migrations.InitialCreate2234.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CadastroAlimentos9.Migrations.InitialCreate2234.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CadastroAlimentos9.Migrations.InitialCreate2234.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:CadastroAlimentos9.Resource">
+            <summary>
+            Android Resource Designer class.
+            Exposes the Android Resource designer assembly into the project Namespace.
+            </summary>
+        </member>
+    </members>
+</doc>

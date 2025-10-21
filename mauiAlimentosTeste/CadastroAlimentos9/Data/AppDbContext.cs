@@ -10,7 +10,8 @@ public class AppDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         // ATENÇÃO: Substitua pelo nome da sua instância SQL Server
-        string connectionString = "Server=PEDRO-LUCAS;Database=CadastroAlimentosDB_Final;Trusted_Connection=True;TrustServerCertificate=True;";
+        // Use a senha forte que você definiu no comando 'docker run'.
+        string connectionString = "Server=172.30.15.34,1433;Database=CadastroAlimentosDB_Final;User ID=sa;Password=TesteForte123!;TrustServerCertificate=True;";
         optionsBuilder.UseSqlServer(connectionString);
     }
 }

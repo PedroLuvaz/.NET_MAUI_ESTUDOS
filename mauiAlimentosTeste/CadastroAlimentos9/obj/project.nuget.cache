@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gWA3T7c5ivE=",
+  "dgSpecHash": "D9mqQJ8P8rc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Pedro Andrade\\Desktop\\mauiAlimentosTeste\\mauiAlimentosTeste\\CadastroAlimentos9\\CadastroAlimentos9.csproj",
+  "projectFilePath": "C:\\Users\\Pedro Andrade\\Desktop\\DEV_LUFH\\.NET_MAUI_ESTUDOS\\mauiAlimentosTeste\\CadastroAlimentos9\\CadastroAlimentos9.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pedro Andrade\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Pedro Andrade\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
