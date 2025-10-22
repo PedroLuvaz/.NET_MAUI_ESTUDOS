@@ -213,8 +213,8 @@ public class AlimentosViewModel : INotifyPropertyChanged
 Crie o arquivo da página `Views/AlimentosPage.xaml` e adicione o seguinte código de interface:
 
 ```xml
-<ContentPage xmlns="[http://schemas.microsoft.com/dotnet/2021/maui](http://schemas.microsoft.com/dotnet/2021/maui)"
-             xmlns:x="[http://schemas.microsoft.com/winfx/2009/xaml](http://schemas.microsoft.com/winfx/2009/xaml)"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:CadastroAlimentos9.ViewModels"
              x:Class="CadastroAlimentos9.Views.AlimentosPage"
              Title="Cadastro de Alimentos">
@@ -262,10 +262,10 @@ namespace CadastroAlimentos9.Views;
 
 public partial class AlimentosPage : ContentPage
 {
-	public AlimentosPage()
-	{
-		InitializeComponent();
-	}
+    public AlimentosPage()
+    {
+        InitializeComponent();
+    }
 }
 ```
 
@@ -278,17 +278,16 @@ public partial class AlimentosPage : ContentPage
     ```xml
     <Shell
         x:Class="CadastroAlimentos9.AppShell"
-        xmlns="[http://schemas.microsoft.com/dotnet/2021/maui](http://schemas.microsoft.com/dotnet/2021/maui)"
-        xmlns:x="[http://schemas.microsoft.com/winfx/2009/xaml](http://schemas.microsoft.com/winfx/2009/xaml)"
-        xmlns:views="clr-namespace:CadastroAlimentos9.Views"
-        Shell.FlyoutBehavior="Disabled"
-        Title="CadastroAlimentos9">
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:CadastroAlimentos9.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="CadastroAlimentos9">
 
         <ShellContent
             Title="Home"
-            ContentTemplate="{DataTemplate views:AlimentosPage}"
-            Route="MainPage" />
-
+        ContentTemplate="{DataTemplate views:AlimentosPage}"
+        Route="MainPage" />
     </Shell>
     ```
 
@@ -305,5 +304,4 @@ public partial class AlimentosPage : ContentPage
 
 <!-- end list -->
 
-```
 ```
