@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:GerenciadorContas.Maui.Models"
+             x:Class="GerenciadorContas.Maui.Views.MainPage"
+             Title="Gerenciador de Contas">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="10">
+
+            <Label
+                Text="Total Gasto"
+                FontSize="Medium"
+                HorizontalOptions="Center"/>
+
+            <Label
+                Text="{Binding TotalGasto, StringFormat='R$ {0:N2}'}"
+                FontSize="Large"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"/>
+
+            <Button
+                Text="Atualizar"
+                Command="{Binding CarregarDadosCommand}"/>
+
+            <BoxView HeightRequest="1"
+                     Color="Gray"
+                     Margin="0,10"/>
+
+            <Label
+                Text="Adicionar Nova Conta"
+                FontSize="Medium"
+                FontAttributes="Bold"/>
+
+            <Entry
+                Placeholder="Nome da conta (ex: Energia, Água)"
+                Text="{Binding Nome}"/>
+
+            <Entry
+                Placeholder="Valor"
+                Text="{Binding Valor}"
+                Keyboard="Numeric"/>
+
+            <Button
+                Text="Salvar Conta"
+                Command="{Binding SalvarCommand}"/>
+
+            <BoxView HeightRequest="1"
+                     Color="Gray"
+                     Margin="0,10"/>
+
+            <Label
+                Text="Histórico de Contas"
+                FontSize="Medium"
+                FontAttributes="Bold"/>
+
+            <CollectionView ItemsSource="{Binding Contas}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Conta">
+
+                        <Frame Padding="15"
+                               Margin="0,5"
+                               CornerRadius="8"
+                               BackgroundColor="#333333"
+                               BorderColor="#555555">
+
+                            <Grid ColumnSpacing="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    Grid.Column="0"
+                                    Text="{Binding Nome}"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    VerticalOptions="Center"/>
+
+                                <Label
+                                    Grid.Column="1"
+                                    Text="{Binding Valor, StringFormat='R$ {0:N2}'}"
+                                    TextColor="Red"
+                                    FontSize="Medium"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="End"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

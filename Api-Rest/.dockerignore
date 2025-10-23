@@ -1,0 +1,8 @@
+# Exclui artefatos de build e debug
+**/bin/
+**/obj/
+
+# Exclui arquivos de configuração de IDE
+.vs/
+.vscode/
+*.user

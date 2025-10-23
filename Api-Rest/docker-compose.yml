@@ -1,0 +1,59 @@
+# Define a versão do Docker Compose
+version: '3.8'
+
+# 'services' é a lista de contêineres que vamos rodar
+services:
+
+  # --- SERVIÇO 1: O BANCO DE DADOS ---
+  sql-server-db:
+    # 1. Usa a imagem pronta da Microsoft (não precisa de Dockerfile)
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: gerenciador-contas-db
+    
+    environment:
+      ACCEPT_EULA: "Y"
+      
+      # 2. A SENHA!
+      # Deve ser EXATAMENTE a mesma que você colocou no appsettings.json
+      SA_PASSWORD: "Senha123!@MPL"
+      
+    ports:
+      # 3. Expõe a porta do banco para o nosso PC (localhost)
+      # Isso é ESSENCIAL para rodarmos o 'dotnet ef database update' na Fase 5
+      - "1433:1433"
+      
+    volumes:
+      - sql-server-data:/var/opt/mssql
+
+  # --- SERVIÇO 2: A NOSSA API REST ---
+  backend-api:
+    container_name: gerenciador-contas-api
+    
+    # 4. A MÁGICA: Em vez de 'image:', usamos 'build:'.
+    # Diz ao Docker para NÃO procurar uma imagem pronta.
+    # Em vez disso, ele deve...
+    build:
+      # ...ir para esta pasta (o caminho para a sua API)
+      context: ./src/GerenciadorContas.Api
+      # ...e usar este arquivo (a receita da Fase 3)
+      dockerfile: Dockerfile
+      
+    ports:
+      # 5. Expõe a porta 8080 da API para o nosso PC (localhost)
+      # O .NET 9 usa a porta 8080 por padrão dentro do contêiner
+      # Mapeamos localhost:8080 -> container:8080
+      - "8080:8080"
+      
+    # 6. Esta é a string de conexão da API.
+    # Estamos "sobrescrevendo" a do appsettings.json (é uma boa prática)
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sql-server-db;Database=GerenciadorContasDB;User Id=sa;Password=Senha123!@MPL;TrustServerCertificate=True
+      
+    # 7. Garante que o banco de dados inicie ANTES da API
+    depends_on:
+      - sql-server-db
+
+# Define o volume de dados persistentes para o SQL
+volumes:
+  sql-server-data:
+    driver: local
